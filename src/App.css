@@ -1,3 +1,23 @@
 .App {
   text-align: center;
+  display: flex;
+  gap: 15px;
+  height: 100vh;
 }
+
+.nav {
+  border-right: 1px solid black;
+  overflow: auto;
+  padding: 15px;
+}
+
+.nav .active {
+  font-weight: bold;
+}
+
+.example {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 15px;
+}
+
