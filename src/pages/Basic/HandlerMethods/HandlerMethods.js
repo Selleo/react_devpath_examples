@@ -6,6 +6,7 @@ function Button({ onClick, children }) {
   return <button onClick={onClick}>{children}</button>;
 }
 
+// components wrapped in memo will rerender only when props change
 const MemoButton = memo(Button);
 
 export default function HandlerMethods() {
@@ -30,6 +31,8 @@ export default function HandlerMethods() {
       <div className='buttons-list'>
         <MemoButton
           onClick={() => {
+            // inline handler definition should be used only for one-liners
+            // which don't need to be optimized
             setVal((curr) => curr + 1);
           }}
         >
