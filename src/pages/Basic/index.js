@@ -1,3 +1,4 @@
 import { HandlerMethods } from "./HandlerMethods";
+import OptimizationRouter from "./BigListOptimizationExample/OptimizationRouter";
 
-export { HandlerMethods };
+export { HandlerMethods, OptimizationRouter };
