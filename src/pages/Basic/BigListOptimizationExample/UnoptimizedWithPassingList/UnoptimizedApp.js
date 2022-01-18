@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import List from "./List";
 import MOCK_DATA from "../MOCK_DATA";
 

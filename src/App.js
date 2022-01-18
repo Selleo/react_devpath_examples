@@ -1,7 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
-import { HandlerMethods, OptimizationRouter } from "./pages/Basic";
+import {
+  HandlerMethods,
+  OptimizationRouter,
+  UseEffect2,
+  UseEffectFlow,
+} from "./pages/Basic";
 
 function App() {
   return (
@@ -13,6 +18,7 @@ function App() {
           <NavLink to="/basics/bigComponentOptimization">
             How to optimize big component
           </NavLink>
+          <NavLink to="/basics/useEffect">useEffect flow</NavLink>
         </nav>
         <div className="example">
           <Routes>
@@ -21,6 +27,8 @@ function App() {
               path="/basics/bigComponentOptimization"
               element={<OptimizationRouter />}
             />
+            <Route path="/basics/useEffect" element={<UseEffectFlow />} />
+            <Route path="/basics/useEffect2" element={<UseEffect2 />} />
           </Routes>
         </div>
       </div>
