@@ -27,11 +27,13 @@ export function MyProvider({ prop1, prop2, prop3, children }) {
   const someOtherMemoizedData = useMemo(() => {
     // some memoization logic
     return { val: "This value took long to compute" };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prop1]);
 
   const someCallback = useCallback(() => {
     // some logic
     console.log('callback!')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prop2]);
 
   const [someState, setSomeState] = useState(prop3);
