@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import List from "./List";
 import MOCK_DATA from "../MOCK_DATA";
-import { getItem } from "../helpers";
+import { getNewElement } from "../helpers";
 
 export default function UnoptimizedWithPassingListApp() {
   const [timer, setTimer] = useState(0);
@@ -10,25 +10,21 @@ export default function UnoptimizedWithPassingListApp() {
   // filteredListElements are recalculated on every rerender and is reference to new array every time
   // because of that extracting List component with React.memo does not provide optimization benefit
   // it should be wrapped in useMemo
-  const filteredListElements = list.filter((_, index) => index % 24)
+  const filteredListElements = list.filter((_, index) => index % 24);
 
   // addElementToList is a reference to new function on every rerender
   // because of that extracting List component with React.memo does not provide optimization benefit
   // it should be wrapped in useCallback
-  const addElementToList = () => setList((currentList) => {
-    const newElement = getItem();
-    currentList.unshift(newElement);
-    return currentList
-  })
-
+  const addElementToList = () =>
+    setList((currentList) => [getNewElement(), ...currentList]);
 
   useEffect(function timerSetup() {
     const timerId = setInterval(() => {
-      setTimer((currentTimer) => currentTimer + 1)
-    }, 10)
+      setTimer((currentTimer) => currentTimer + 1);
+    }, 10);
 
-    return () => clearInterval(timerId)
-  }, [])
+    return () => clearInterval(timerId);
+  }, []);
 
   return (
     <>
@@ -36,7 +32,10 @@ export default function UnoptimizedWithPassingListApp() {
 
       <div>Some timer value: {timer}</div>
 
-      <List filteredListElements={filteredListElements} addElementToList={addElementToList}/>
+      <List
+        filteredListElements={filteredListElements}
+        addElementToList={addElementToList}
+      />
     </>
   );
 }

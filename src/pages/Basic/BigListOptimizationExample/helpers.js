@@ -3,7 +3,7 @@ const getIp = (id, shortId) => {
   return `231.${randomPart}.${id.slice(-7, -4)}.${shortId}`;
 };
 
-export const getItem = () => {
+export const getNewElement = () => {
   const id = Date.now().toString(10);
   const shortId = id.slice(-4, -1);
   return {
