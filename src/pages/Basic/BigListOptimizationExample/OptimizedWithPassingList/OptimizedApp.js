@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import List from "./List";
 import MOCK_DATA from "../MOCK_DATA";
+import { getItem } from "../helpers";
 
 export default function OptimizedWithPassingListApp() {
   const [timer, setTimer] = useState(0);
@@ -9,7 +10,8 @@ export default function OptimizedWithPassingListApp() {
   const filteredListElements = useMemo(() => list.filter((_, index) => index % 24), [list])
 
   const addElementToList = useCallback(() => setList((currentList) => {
-    currentList.unshift({id: Date.now()});
+    const newElement = getItem();
+    currentList.unshift(newElement);
     return currentList
   }), [])
 

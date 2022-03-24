@@ -1,5 +1,6 @@
 import { memo, useCallback, useMemo, useState } from "react";
 import MOCK_DATA from "../MOCK_DATA";
+import { getItem } from "../helpers";
 
 function List() {
   const [list, setList] = useState(MOCK_DATA);
@@ -7,7 +8,8 @@ function List() {
   const filteredListElements = useMemo(() => list.filter((_, index) => index % 24), [list])
 
   const addElementToList = useCallback(() => setList((currentList) => {
-    currentList.unshift({id: Date.now()});
+    const newElement = getItem();
+    currentList.unshift(newElement);
     return currentList
   }), [])
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import List from "./List";
 import MOCK_DATA from "../MOCK_DATA";
+import { getItem } from "../helpers";
 
 export default function UnoptimizedWithPassingListApp() {
   const [timer, setTimer] = useState(0);
@@ -15,7 +16,8 @@ export default function UnoptimizedWithPassingListApp() {
   // because of that extracting List component with React.memo does not provide optimization benefit
   // it should be wrapped in useCallback
   const addElementToList = () => setList((currentList) => {
-    currentList.unshift({id: Date.now()});
+    const newElement = getItem();
+    currentList.unshift(newElement);
     return currentList
   })
 
