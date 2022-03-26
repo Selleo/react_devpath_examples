@@ -6,7 +6,9 @@ import {
   HandlerMethods,
   OptimizationRouter,
   UseEffect2,
-  UseEffectFlow, UseStateExample,
+  UseEffectFlow,
+  UseRefOptimization,
+  UseStateExample,
 } from "./pages/Basic";
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
         <NavLink to="/basics/useEffect">useEffect flow</NavLink>
         <NavLink to="/basics/contextExample">Context example</NavLink>
         <NavLink to="/basics/useStateExample">useState example</NavLink>
+        <NavLink to="/basics/useRefOptimization">
+          optimization with useRef
+        </NavLink>
       </nav>
       <div className="example">
         <Routes>
@@ -33,6 +38,10 @@ function App() {
           <Route path="/basics/useEffect2" element={<UseEffect2 />} />
           <Route path="/basics/contextExample" element={<ContextExample />} />
           <Route path="/basics/useStateExample" element={<UseStateExample />} />
+          <Route
+            path="/basics/useRefOptimization"
+            element={<UseRefOptimization />}
+          />
         </Routes>
       </div>
     </div>
