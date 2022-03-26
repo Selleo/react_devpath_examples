@@ -11,7 +11,7 @@ const apps = [
   OptimizedWithContainedListApp,
 ]
 
-function OptimizationRouter() {
+export function OptimizationRouter() {
   const [displayIndex, setIndex] = useState(0);
 
   const toggleDisplay = useCallback(() => {
@@ -31,5 +31,3 @@ function OptimizationRouter() {
     </div>
   );
 }
-
-export default OptimizationRouter;
