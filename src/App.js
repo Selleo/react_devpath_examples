@@ -10,12 +10,13 @@ import {
   UseRefOptimization,
   UseStateExample,
 } from "./pages/Basic";
+import { ContainmentAndRenderProps } from "./pages/Advanced";
 
 function App() {
   return (
     <div className="App">
       <nav className="nav">
-        <h3>Examples</h3>
+        <h3>Basics Examples</h3>
         <NavLink to="/basics/handler">Interaction handler definition</NavLink>
         <NavLink to="/basics/bigComponentOptimization">
           How to optimize big component
@@ -25,6 +26,11 @@ function App() {
         <NavLink to="/basics/useStateExample">useState example</NavLink>
         <NavLink to="/basics/useRefOptimization">
           optimization with useRef
+        </NavLink>
+
+        <h3>Advanced Examples</h3>
+        <NavLink to="/advanced/containmentAndRenderProps">
+          Containment vs RenderProps
         </NavLink>
       </nav>
       <div className="example">
@@ -41,6 +47,10 @@ function App() {
           <Route
             path="/basics/useRefOptimization"
             element={<UseRefOptimization />}
+          />
+          <Route
+            path="/advanced/containmentAndRenderProps"
+            element={<ContainmentAndRenderProps />}
           />
         </Routes>
       </div>
