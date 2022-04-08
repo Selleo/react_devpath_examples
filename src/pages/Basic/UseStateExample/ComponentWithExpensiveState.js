@@ -35,9 +35,9 @@ export function ComponentWithExpensiveState({ initialLength }) {
   return (
     <div>
       <h1>Data length: {data.length}</h1>
-      <MemoizedButton onClickHandler={addNewElement}>
+      <Button onClickHandler={addNewElement}>
         Add element
-      </MemoizedButton>
+      </Button>
       <ul>
         {data.slice(0, 50).map((item) => (
           <li style={{ listStyleType: "none" }} key={item.id}>
