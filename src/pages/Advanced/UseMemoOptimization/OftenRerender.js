@@ -1,7 +1,7 @@
 import { expensiveCalculation } from "./expensiveCalculation";
 
 export const OftenRerender = () => {
-  const { val } = expensiveCalculation(Math.floor(Math.random() * 1000) + 2000);
+  const [{ val }] = expensiveCalculation(Math.floor(Math.random() * 100) + 20);
 
   return (
     <p>

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { expensiveCalculation } from "./expensiveCalculation";
 
 export const StaticComponent = memo(() => {
-  const { val } = expensiveCalculation(Math.floor(Math.random() * 1000) + 2000);
+  const [{ val }] = expensiveCalculation(Math.floor(Math.random() * 100) + 20);
 
   return (
     <p>

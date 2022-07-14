@@ -1,7 +1,11 @@
 import { expensiveCalculation } from "./expensiveCalculation";
 
-export const OftenRerenderWithPropsAffectingCalculation = ({initialLength}) => {
-  const { val } = expensiveCalculation(Math.floor(Math.random() * 1000) + 2000 + initialLength);
+export const OftenRerenderWithPropsAffectingCalculation = ({
+  initialLength,
+}) => {
+  const [{ val }] = expensiveCalculation(
+    Math.floor(Math.random() * 100) + 20 + (initialLength % 5)
+  );
 
   return (
     <p>

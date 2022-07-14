@@ -3,37 +3,42 @@ import { StaticComponent } from "./StaticComponent";
 import { OftenRerenderWithPropsAffectingCalculation } from "./OftenRerenderWithPropsAffectingCalculation";
 import { OftenRerender } from "./OftenRerender";
 
+const styles = {
+  border: "1px solid black",
+  backgroundColor: "lightgray",
+  margin: "10px",
+};
+
 export const UseMemoExamples = () => {
-  const [val, setValue] = useState();
+  const [val, setValue] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setValue((v) => v + 1);
     }, 50);
-
     return () => clearInterval(intervalId);
   });
 
   return (
     <div>
-      <p>
+      <div style={styles}>
         component that rarely rerenders
         <br />
         <StaticComponent />
-      </p>
+      </div>
 
-      <p>
+      <div style={styles}>
         component that often rerenders but for other reasons
         <br />
         <OftenRerender someProp={val} />
-      </p>
+      </div>
 
-      <p>
+      <div style={styles}>
         component that often rerenders changing prop affecting the
         <br />
         calculation
-        <OftenRerenderWithPropsAffectingCalculation />
-      </p>
+        <OftenRerenderWithPropsAffectingCalculation initialLength={val} />
+      </div>
     </div>
   );
 };

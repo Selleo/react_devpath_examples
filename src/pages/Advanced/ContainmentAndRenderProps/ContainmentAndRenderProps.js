@@ -5,12 +5,12 @@ const Container = ({ Header, footer, children }) => {
     <div>
       <div style={{ marginBottom: "250px", backgroundColor: "#AAA" }}>
         <h1>
-          <Header />
+          <Header additionalText="test" />
         </h1>
       </div>
-      {children()}
+      {children}
       <div style={{ marginTop: "250px", backgroundColor: "#AAA" }}>
-        {footer()}
+        {footer}
       </div>
     </div>
   );
@@ -52,7 +52,7 @@ export const ContainmentAndRenderProps = () => {
       </Container>
       <hr />
       <RenderProp
-        Header={(additionalText) => <Header additionalText={additionalText} />}
+        header={(additionalText) => <Header additionalText={additionalText} />}
         footer={(additionalText) => (
           <div>FOOTER content with {additionalText}</div>
         )}
