@@ -10,7 +10,7 @@ import {
   UseRefOptimization,
   UseStateExample,
 } from "./pages/Basic";
-import { ContainmentAndRenderProps } from "./pages/Advanced";
+import { ContainmentAndRenderProps, UseMemoExamples } from "./pages/Advanced";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
         <NavLink to="/advanced/containmentAndRenderProps">
           Containment vs RenderProps
         </NavLink>
+        <NavLink to="/advanced/whenToUseUseMemo">When to use useMemo</NavLink>
       </nav>
       <div className="example">
         <Routes>
@@ -51,6 +52,10 @@ function App() {
           <Route
             path="/advanced/containmentAndRenderProps"
             element={<ContainmentAndRenderProps />}
+          />
+          <Route
+            path="/advanced/whenToUseUseMemo"
+            element={<UseMemoExamples />}
           />
         </Routes>
       </div>
