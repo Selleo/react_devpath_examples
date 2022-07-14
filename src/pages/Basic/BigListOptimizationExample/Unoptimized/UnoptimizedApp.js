@@ -3,17 +3,22 @@ import MOCK_DATA from "../MOCK_DATA";
 import { getNewElement } from "../helpers";
 import { Item } from "../Item";
 
-export default function UnoptimizedApp() {
-  const [list, setList] = useState(MOCK_DATA);
+const Timer = () => {
   const [timer, setTimer] = useState(0);
 
   useEffect(function timerSetup() {
     const timerId = setInterval(() => {
       setTimer((currentTimer) => currentTimer + 1);
-    }, 10);
+    }, 1);
 
     return () => clearInterval(timerId);
   }, []);
+
+  return <div>Some timer value: {timer}</div>;
+};
+
+export default function UnoptimizedApp() {
+  const [list, setList] = useState(MOCK_DATA);
 
   // each update of timer cause recalculation of filteredListElements
   // this takes time on itself
@@ -29,7 +34,7 @@ export default function UnoptimizedApp() {
     <>
       <h1>Unoptimized App</h1>
 
-      <div>Some timer value: {timer}</div>
+      <Timer />
 
       <div>
         <h3>Some big list</h3>

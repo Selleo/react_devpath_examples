@@ -8,7 +8,7 @@ const MemoizedButton = memo(Button);
 
 export function ComponentWithExpensiveState({ initialLength }) {
   // useState optimization #1
-  const [data, setData] = useState(
+  const [data, setData] = useState(() =>
     Array.from({ length: initialLength }, () => {
       const val = Math.round(
         Array.from(Array(30_000))
@@ -35,9 +35,8 @@ export function ComponentWithExpensiveState({ initialLength }) {
   return (
     <div>
       <h1>Data length: {data.length}</h1>
-      <Button onClickHandler={addNewElement}>
-        Add element
-      </Button>
+      <Button onClickHandler={addNewElement}>Add element</Button>
+      <MemoizedButton onClickHandler={addNewElement}>Add element (memoized button)</MemoizedButton>
       <ul>
         {data.slice(0, 50).map((item) => (
           <li style={{ listStyleType: "none" }} key={item.id}>

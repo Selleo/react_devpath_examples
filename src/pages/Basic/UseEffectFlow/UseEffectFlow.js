@@ -29,7 +29,7 @@ export default function UseEffectFlow() {
       <button onClick={() => setVal((current) => current + 1)}>
         Trigger useEffect
       </button>
-      <p>check browser console</p>
+      <p>check browser console val: {val}</p>
       <Link to="/basics/useEffect2">
         <button>Unmount component</button>
       </Link>
