@@ -9,7 +9,7 @@ export const UseMemoExamples = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setValue((v) => v + 1);
-    });
+    }, 50);
 
     return () => clearInterval(intervalId);
   });
