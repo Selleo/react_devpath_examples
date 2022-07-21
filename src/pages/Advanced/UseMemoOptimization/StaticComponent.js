@@ -1,8 +1,11 @@
 import { memo } from "react";
 import { expensiveCalculation } from "./expensiveCalculation";
 
+const initialLength = Math.floor(Math.random() * 100) + 20;
 export const StaticComponent = memo(() => {
-  const [{ val }] = expensiveCalculation(Math.floor(Math.random() * 100) + 20);
+  // useMemo does not provide benefit in this case,
+  // as this component is only mounted and after mounting it does not rerender
+  const [{ val }] = expensiveCalculation(initialLength);
 
   return (
     <p>

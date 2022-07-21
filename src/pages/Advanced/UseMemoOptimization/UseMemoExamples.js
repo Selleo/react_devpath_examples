@@ -30,7 +30,7 @@ export const UseMemoExamples = () => {
       <div style={styles}>
         component that often rerenders but for other reasons
         <br />
-        <OftenRerender someProp={val} />
+        <OftenRerender />
       </div>
 
       <div style={styles}>

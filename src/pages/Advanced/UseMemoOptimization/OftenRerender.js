@@ -1,7 +1,15 @@
 import { expensiveCalculation } from "./expensiveCalculation";
 
-export const OftenRerender = () => {
-  const [{ val }] = expensiveCalculation(Math.floor(Math.random() * 100) + 20);
+const initialLength = Math.floor(Math.random() * 100) + 20;
+
+export const OftenRerender = ({ someProp }) => {
+  // in this case useMemo provides maximum benefit
+  // as the component rerenders many times, but the props do not affect the calculation
+  const [{ val }] = expensiveCalculation(initialLength);
+  // const [{ val }] = useMemo(
+  //   () => expensiveCalculation(initialLength),
+  //   []
+  // );
 
   return (
     <p>
@@ -10,6 +18,7 @@ export const OftenRerender = () => {
       <br />
       The cause of rerendering is not related to the expensive calculation
       <br />
+      {someProp}
       <b>val: {val}</b>
     </p>
   );

@@ -1,10 +1,16 @@
 import { expensiveCalculation } from "./expensiveCalculation";
+import { useMemo } from "react";
+
+const staticInitialLength = Math.floor(Math.random() * 100) + 20;
 
 export const OftenRerenderWithPropsAffectingCalculation = ({
   initialLength,
 }) => {
-  const [{ val }] = expensiveCalculation(
-    Math.floor(Math.random() * 100) + 20 + (initialLength % 5)
+  // everytime the component updates initialLength is different
+  // making the calculation trigger everytime even when using useMemo hook
+  const [{ val }] = useMemo(
+    () => expensiveCalculation(staticInitialLength + (initialLength % 5)),
+    [initialLength]
   );
 
   return (
